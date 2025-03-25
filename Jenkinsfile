@@ -4,15 +4,18 @@ pipeline {
         AZURE_CREDENTIALS = credentials('AzureServicePrincipal')
         AZURE_RESOURCE_GROUP = 'jenkins-get-started-rg'
         AZURE_WEBAPP_NAME = 'myjenkinsapp-yizhe928'
-        PATH = "/opt/homebrew/bin:$PATH"
     }
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                dir('src') {
+                    sh 'mvn clean package'
+                }
             }
         }
 
+        // 暂时注释或删除 Deploy 阶段，防止 Jenkins 构建失败
+        /*
         stage('Deploy to Azure') {
             steps {
                 sh '''
@@ -21,7 +24,9 @@ pipeline {
                 '''
             }
         }
+        */
     }
 }
+
 
 
