@@ -10,12 +10,13 @@
 
     <name>JavaHelloWorld</name>
 
-    <build>
-        <finalName>JavaHelloWorld</finalName>
-    </build>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 
     <dependencies>
-        <!-- ✅ 添加 servlet API 依赖 -->
+        <!-- 添加 servlet-api 依赖 -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -24,9 +25,17 @@
         </dependency>
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+    <build>
+        <finalName>JavaHelloWorld</finalName>
+        <plugins>
+            <!-- ✅ 强制使用新版 war 插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
+
 
