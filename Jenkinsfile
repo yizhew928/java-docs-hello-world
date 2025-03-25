@@ -4,6 +4,7 @@ pipeline {
         AZURE_CREDENTIALS = credentials('AzureServicePrincipal')
         AZURE_RESOURCE_GROUP = 'jenkins-get-started-rg'
         AZURE_WEBAPP_NAME = 'myjenkinsapp-yizhe928'
+        PATH = "/opt/homebrew/bin:$PATH"
     }
     stages {
         stage('Build') {
