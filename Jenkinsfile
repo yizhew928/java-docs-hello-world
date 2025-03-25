@@ -8,9 +8,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                dir('src') {
+                    sh 'mvn clean package'
+                }
             }
         }
+
         stage('Deploy to Azure') {
             steps {
                 sh '''
@@ -21,3 +24,4 @@ pipeline {
         }
     }
 }
+
